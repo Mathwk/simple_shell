@@ -12,10 +12,14 @@ void excute_in(char **argv)
 	if (argv != NULL)
 	{
 		pd = fork();
+		if (pd == -1)
+			perror("(incorrect input) ");
 		if (pd == 0)
 		{
 			if (execve(full_path(argv[0]), argv, NULL) == -1)
 				perror("(incorrect input) ");
 		}
+		else
+			return;
 	}
 }
