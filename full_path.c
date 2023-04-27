@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * full_path - search for the pull path of command
+ * full_path - pull path for search of command
  * @cmnd: command to be searched
  *
  * Return: full path of the command
@@ -33,7 +33,6 @@ char *full_path(char *cmnd)
 			}
 			free(file_loc);
 		}
-		return ("NULL");
 	}
 	return (NULL);
 }
