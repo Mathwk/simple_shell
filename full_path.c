@@ -33,6 +33,7 @@ char *full_path(char *cmnd)
 			}
 			free(file_loc);
 		}
+		return ("NULL");
 	}
 	return (NULL);
 }

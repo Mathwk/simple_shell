@@ -10,20 +10,21 @@
 char **string_split(char *str, char del, int length)
 {
 	int i, j, count;
-	char **portion, str_t[98];
+	char **portion, *str_t;
 
 	portion = malloc(sizeof(char *) * length);
 	for (i = 0, count = 0; str[i + 1] != '\0'; i++)
 	{
 		if (str[i] == del)
 			continue;
+		str_t = malloc(sizeof(char *));
 		for (j = 0; !(str[i + 1] == '\0' || str[i] == del); j++, i++)
 			str_t[j] = str[i];
 		portion[count] = malloc(sizeof(char) * strlen(str_t));
 		strcpy(portion[count], str_t);
 		count++;
-		for (j = 0; j < 98; j++)
-			str_t[j] = '\0';
+		free(str_t);
 	}
+	portion[count] = NULL;
 	return (portion);
 }
